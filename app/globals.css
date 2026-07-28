@@ -129,7 +129,7 @@ img {
 .primary-nav {
   align-items: center;
   display: flex;
-  gap: clamp(20px, 2.6vw, 42px);
+  gap: clamp(14px, 1.65vw, 28px);
   justify-content: center;
 }
 
@@ -687,6 +687,103 @@ h2 {
   margin: 0;
 }
 
+.rooms-showcase {
+  background: #f2eadf;
+}
+
+.rooms-heading {
+  margin-bottom: 54px;
+}
+
+.room-showcase-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.room-showcase-card {
+  background: var(--green-950);
+  color: var(--white);
+  display: block;
+  min-height: 570px;
+  overflow: hidden;
+  position: relative;
+}
+
+.room-showcase-card::after {
+  background:
+    linear-gradient(180deg, rgba(13, 46, 40, 0.04) 25%, rgba(13, 46, 40, 0.93) 100%),
+    linear-gradient(90deg, rgba(13, 46, 40, 0.12), transparent 45%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.room-showcase-card img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: 100%;
+}
+
+.room-showcase-card:hover img,
+.room-showcase-card:focus-visible img {
+  transform: scale(1.045);
+}
+
+.room-card-number {
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 50%;
+  display: grid;
+  font-family: var(--serif);
+  font-size: 18px;
+  height: 52px;
+  left: 28px;
+  place-items: center;
+  position: absolute;
+  top: 28px;
+  width: 52px;
+  z-index: 2;
+}
+
+.room-card-copy {
+  bottom: 0;
+  left: 0;
+  padding: 34px;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+}
+
+.room-card-copy h3 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  margin: 0 0 12px;
+}
+
+.room-card-copy p {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+  margin: 0 0 25px;
+  max-width: 38ch;
+}
+
+.room-card-copy strong {
+  border-bottom: 1px solid rgba(213, 189, 144, 0.7);
+  color: var(--gold-light);
+  display: inline-flex;
+  font-size: 12px;
+  gap: 12px;
+  letter-spacing: 0.04em;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
 .community-section {
   background: var(--ivory);
   grid-template-columns: minmax(360px, 0.95fr) minmax(0, 1.05fr);
@@ -1009,6 +1106,195 @@ footer {
   grid-column: 1 / -1;
   margin: 0;
   padding-top: 24px;
+}
+
+.coming-soon-page {
+  background:
+    radial-gradient(circle at 78% 44%, rgba(177, 138, 74, 0.13), transparent 25%),
+    var(--green-950);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.coming-soon-page::before {
+  border: 1px solid rgba(213, 189, 144, 0.13);
+  border-radius: 50%;
+  content: "";
+  height: 52vw;
+  max-height: 750px;
+  max-width: 750px;
+  min-height: 520px;
+  min-width: 520px;
+  position: absolute;
+  right: -16vw;
+  top: 13%;
+  width: 52vw;
+}
+
+.coming-soon-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(213, 189, 144, 0.18);
+  display: flex;
+  height: 88px;
+  justify-content: space-between;
+  padding: 0 clamp(24px, 5vw, 76px);
+  position: relative;
+  z-index: 3;
+}
+
+.brand-on-dark .brand-name {
+  color: var(--ivory);
+}
+
+.brand-on-dark .brand-mark {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+
+.brand-on-dark .brand-mark::before,
+.brand-on-dark .brand-mark::after {
+  background: var(--gold);
+}
+
+.coming-soon-actions {
+  align-items: center;
+  display: flex;
+  gap: 28px;
+}
+
+.coming-soon-actions > a {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+}
+
+.coming-soon-actions > a:hover {
+  color: var(--gold-light);
+}
+
+.coming-soon-header .language-switcher {
+  border-color: rgba(213, 189, 144, 0.4);
+}
+
+.coming-soon-header .language-switcher button {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.coming-soon-header .language-switcher button.active {
+  color: var(--gold-light);
+}
+
+.coming-soon-stage {
+  align-items: center;
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 0.82fr) minmax(440px, 1.18fr);
+  min-height: 620px;
+  padding: clamp(64px, 8vw, 116px) clamp(24px, 8vw, 122px);
+  position: relative;
+  z-index: 1;
+}
+
+.coming-soon-orbit {
+  align-items: center;
+  aspect-ratio: 1;
+  border: 1px solid rgba(213, 189, 144, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  max-width: 390px;
+  position: relative;
+  width: min(30vw, 390px);
+}
+
+.coming-soon-orbit::before,
+.coming-soon-orbit::after {
+  border: 1px solid rgba(213, 189, 144, 0.12);
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+}
+
+.coming-soon-orbit::before {
+  inset: 13%;
+}
+
+.coming-soon-orbit::after {
+  inset: 30%;
+}
+
+.coming-soon-orbit span {
+  color: var(--gold-light);
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 112px);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+}
+
+.coming-soon-copy {
+  max-width: 720px;
+}
+
+.coming-soon-copy .eyebrow {
+  color: var(--gold-light);
+}
+
+.coming-soon-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin: 28px 0 14px;
+  text-transform: uppercase;
+}
+
+.coming-soon-copy h1 {
+  color: var(--ivory);
+  font-size: clamp(72px, 9vw, 142px);
+  line-height: 0.86;
+  margin: 0;
+  max-width: 800px;
+}
+
+.coming-soon-text {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(17px, 1.6vw, 22px);
+  line-height: 1.75;
+  margin: 40px 0 22px;
+  max-width: 650px;
+}
+
+.coming-soon-note {
+  color: var(--gold-light);
+  font-family: var(--serif);
+  font-size: 17px;
+  margin: 0 0 42px;
+}
+
+.coming-soon-footer {
+  align-items: center;
+  background: transparent;
+  border-top: 1px solid rgba(213, 189, 144, 0.18);
+  display: flex;
+  font-size: 12px;
+  gap: 28px;
+  justify-content: space-between;
+  padding: 24px clamp(24px, 5vw, 76px);
+  position: relative;
+  z-index: 3;
+}
+
+.coming-soon-footer p,
+.coming-soon-footer address {
+  margin: 0;
+}
+
+.coming-soon-footer address {
+  color: rgba(255, 255, 255, 0.48);
+  font-style: normal;
 }
 
 .booking-page {
@@ -1594,6 +1880,23 @@ footer {
     min-height: 520px;
   }
 
+  .room-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-showcase-card {
+    min-height: 560px;
+  }
+
+  .coming-soon-stage {
+    gap: 54px;
+    grid-template-columns: 1fr;
+  }
+
+  .coming-soon-orbit {
+    width: min(44vw, 300px);
+  }
+
   .highlight-grid {
     grid-template-columns: 1fr;
   }
@@ -1757,6 +2060,68 @@ footer {
   .footer-links {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .room-showcase-card {
+    min-height: 450px;
+  }
+
+  .room-card-copy {
+    padding: 26px;
+  }
+
+  .room-card-number {
+    height: 46px;
+    left: 22px;
+    top: 22px;
+    width: 46px;
+  }
+
+  .coming-soon-header {
+    height: 76px;
+    padding: 0 16px;
+  }
+
+  .coming-soon-header .brand-name {
+    font-size: 18px;
+  }
+
+  .coming-soon-actions {
+    gap: 8px;
+  }
+
+  .coming-soon-actions > a {
+    display: none;
+  }
+
+  .coming-soon-header .language-switcher {
+    border: 0;
+  }
+
+  .coming-soon-stage {
+    align-content: center;
+    gap: 38px;
+    min-height: calc(100vh - 160px);
+    padding: 58px 24px;
+  }
+
+  .coming-soon-orbit {
+    width: 150px;
+  }
+
+  .coming-soon-copy h1 {
+    font-size: clamp(58px, 19vw, 88px);
+  }
+
+  .coming-soon-text {
+    margin-top: 30px;
+  }
+
+  .coming-soon-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 24px;
   }
 
   .visit-modal-backdrop {

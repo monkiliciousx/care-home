@@ -6,7 +6,15 @@ type Language = "en" | "zh" | "ms";
 
 const content = {
   en: {
-    nav: ["About", "Care Services", "Accommodation", "Facilities", "Contact"],
+    nav: [
+      "About",
+      "Care Services",
+      "Room Types",
+      "Facilities",
+      "Reviews",
+      "Gallery",
+      "Contact",
+    ],
     language: "Language",
     book: "Book a Visit",
     visitModal: {
@@ -54,6 +62,7 @@ const content = {
       ["Twin Room", "Comfortable companionship with room to feel at home."],
       ["Shared Room", "A supportive, social setting with attentive care nearby."],
     ],
+    roomCta: "View Room Types",
     communityEyebrow: "Community healthcare hub",
     communityTitle: "Care that reaches beyond our residence.",
     communityText:
@@ -123,7 +132,15 @@ const content = {
     rights: "All rights reserved.",
   },
   zh: {
-    nav: ["关于我们", "护理服务", "住宿环境", "设施配套", "联系我们"],
+    nav: [
+      "关于我们",
+      "护理服务",
+      "房型介绍",
+      "设施配套",
+      "住户评价",
+      "环境相册",
+      "联系我们",
+    ],
     language: "语言",
     book: "预约参观",
     visitModal: {
@@ -171,6 +188,7 @@ const content = {
       ["双人房", "在舒适环境中享有陪伴，也保留家的感觉。"],
       ["共享护理房", "温暖的社交环境，身边随时有贴心照护。"],
     ],
+    roomCta: "查看房型",
     communityEyebrow: "社区医疗枢纽",
     communityTitle: "让关怀从居所延伸至社区。",
     communityText:
@@ -233,8 +251,10 @@ const content = {
     nav: [
       "Tentang Kami",
       "Perkhidmatan",
-      "Penginapan",
+      "Jenis Bilik",
       "Kemudahan",
+      "Ulasan",
+      "Galeri",
       "Hubungi Kami",
     ],
     language: "Bahasa",
@@ -284,6 +304,7 @@ const content = {
       ["Bilik Berkembar", "Teman yang selesa dengan ruang untuk berasa di rumah."],
       ["Bilik Berkongsi", "Suasana sosial dengan penjagaan sentiasa berdekatan."],
     ],
+    roomCta: "Lihat Jenis Bilik",
     communityEyebrow: "Hab kesihatan komuniti",
     communityTitle: "Penjagaan yang melangkaui kediaman kami.",
     communityText:
@@ -365,7 +386,15 @@ export default function Home() {
   const [minVisitDate, setMinVisitDate] = useState("");
   const t = content[language];
 
-  const sections = ["about", "care", "accommodation", "facilities", "contact"];
+  const navigation = [
+    "#about",
+    "#care",
+    `/room-types?lang=${language}`,
+    "#facilities",
+    `/reviews?lang=${language}`,
+    `/gallery?lang=${language}`,
+    "#contact",
+  ];
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -373,6 +402,22 @@ export default function Home() {
   }
 
   useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const requestedLanguage = query.get("lang");
+    if (
+      requestedLanguage === "en" ||
+      requestedLanguage === "zh" ||
+      requestedLanguage === "ms"
+    ) {
+      setLanguage(requestedLanguage);
+      document.documentElement.lang =
+        requestedLanguage === "zh"
+          ? "zh-Hans"
+          : requestedLanguage === "ms"
+            ? "ms"
+            : "en";
+    }
+
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     const year = tomorrow.getFullYear();
@@ -380,7 +425,7 @@ export default function Home() {
     const day = String(tomorrow.getDate()).padStart(2, "0");
     setMinVisitDate(`${year}-${month}-${day}`);
 
-    if (new URLSearchParams(window.location.search).get("book") === "visit") {
+    if (query.get("book") === "visit") {
       setVisitModalOpen(true);
     }
   }, []);
@@ -455,8 +500,8 @@ export default function Home() {
         <nav className={menuOpen ? "primary-nav open" : "primary-nav"}>
           {t.nav.map((item, index) => (
             <a
-              key={sections[index]}
-              href={`#${sections[index]}`}
+              key={navigation[index]}
+              href={navigation[index]}
               onClick={() => setMenuOpen(false)}
             >
               {item}
@@ -569,32 +614,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="residence-section section" id="accommodation">
-        <div className="residence-image">
-          <img
-            src="/images/lounge-community.webp"
-            alt="Residents and a caregiver enjoying a light-filled communal lounge"
-          />
-          <div className="image-note">
-            <span>53</span>
-            <small>{language === "zh" ? "床位高端护理居所" : language === "ms" ? "katil kediaman premium" : "bed premium residence"}</small>
+      <section className="rooms-showcase section" id="accommodation">
+        <div className="section-heading split-heading rooms-heading">
+          <div>
+            <p className="eyebrow">{t.residenceEyebrow}</p>
+            <h2>{t.residenceTitle}</h2>
           </div>
-        </div>
-        <div className="residence-copy">
-          <p className="eyebrow">{t.residenceEyebrow}</p>
-          <h2>{t.residenceTitle}</h2>
           <p>{t.residenceText}</p>
-          <div className="room-list">
-            {t.roomTypes.map(([title, description], index) => (
-              <article key={title}>
-                <span>0{index + 1}</span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+        </div>
+        <div className="room-showcase-grid">
+          {t.roomTypes.map(([title, description], index) => (
+            <a
+              className="room-showcase-card"
+              href={`/room-types?lang=${language}`}
+              key={title}
+            >
+              <img
+                src={`/images/${["single-room", "twin-room", "shared-room"][index]}.webp`}
+                alt={`${title} at Durian Care Home`}
+              />
+              <span className="room-card-number">0{index + 1}</span>
+              <div className="room-card-copy">
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <strong>
+                  {t.roomCta} <span aria-hidden="true">→</span>
+                </strong>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 
@@ -732,7 +780,7 @@ export default function Home() {
         </div>
         <div className="footer-links">
           {t.nav.map((item, index) => (
-            <a key={sections[index]} href={`#${sections[index]}`}>
+            <a key={navigation[index]} href={navigation[index]}>
               {item}
             </a>
           ))}

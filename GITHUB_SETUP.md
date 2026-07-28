@@ -5,6 +5,8 @@ This package contains the complete source for the Durian Care Home website:
 - English, Chinese and Bahasa Malaysia content
 - Responsive desktop and mobile layouts
 - Care services, accommodation, facilities, location and FAQ sections
+- Visual Single Room, Twin Room and Shared Room showcase
+- Room Types, Reviews and Gallery placeholder pages
 - Opening-soon enquiry interface
 - Guided visit booking flow with a date-and-time popup
 - Dedicated `/book-visit` details page for name, phone, optional email,
