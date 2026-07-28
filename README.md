@@ -8,7 +8,7 @@ residence opening soon in Ayer Keroh, Melaka.
 After GitHub Pages is enabled, the production website is published at:
 
 <https://monkiliciousx.github.io/care-home/>
-
+Cloudflare deployment configured.
 The site includes:
 
 - English, Chinese and Bahasa Malaysia content
