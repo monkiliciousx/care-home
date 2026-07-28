@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import { sitePath } from "../site-path";
 
 type Language = "en" | "zh" | "ms";
 
@@ -160,14 +161,14 @@ export default function BookVisitPage() {
   return (
     <main className="booking-page">
       <header className="booking-header">
-        <a className="brand" href="/" aria-label="Durian Care Home">
+        <a className="brand" href={sitePath("/")} aria-label="Durian Care Home">
           <span className="brand-mark" aria-hidden="true">
             <span>D</span>
           </span>
           <span className="brand-name">Durian Care Home</span>
         </a>
         <div className="booking-header-actions">
-          <a href="/">{t.back}</a>
+          <a href={sitePath("/")}>{t.back}</a>
           <div className="language-switcher" aria-label="Language">
             {(["en", "zh", "ms"] as Language[]).map((code) => (
               <button
@@ -188,7 +189,7 @@ export default function BookVisitPage() {
         <section className="booking-missing">
           <p className="eyebrow">{t.eyebrow}</p>
           <h1>{t.missing}</h1>
-          <a className="button button-dark" href="/?book=visit">
+          <a className="button button-dark" href={sitePath("/?book=visit")}>
             {t.selectSlot}
           </a>
         </section>
@@ -202,14 +203,14 @@ export default function BookVisitPage() {
             <strong>{formattedDate}</strong>
             <span>{visitTime}</span>
           </div>
-          <a className="button button-dark" href="/">
+          <a className="button button-dark" href={sitePath("/")}>
             {t.returnHome}
           </a>
         </section>
       ) : (
         <div className="booking-layout">
           <section className="booking-summary">
-            <a className="booking-back" href="/">
+            <a className="booking-back" href={sitePath("/")}>
               <span aria-hidden="true">←</span> {t.back}
             </a>
             <div>
@@ -229,7 +230,10 @@ export default function BookVisitPage() {
                 <span aria-hidden="true" />
                 {t.status}
               </p>
-              <a className="booking-change" href="/?book=visit">
+              <a
+                className="booking-change"
+                href={sitePath("/?book=visit")}
+              >
                 {t.change}
               </a>
             </div>

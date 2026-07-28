@@ -1297,6 +1297,435 @@ footer {
   font-style: normal;
 }
 
+.interior-page {
+  background: var(--ivory);
+  min-height: 100vh;
+}
+
+.interior-header {
+  align-items: center;
+  background: rgba(248, 244, 236, 0.96);
+  border-bottom: 1px solid rgba(177, 138, 74, 0.22);
+  display: flex;
+  height: 88px;
+  justify-content: space-between;
+  padding: 0 clamp(24px, 5vw, 76px);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(16px);
+}
+
+.interior-header-actions {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+}
+
+.interior-header-actions > a {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.interior-header-actions > a:hover {
+  color: var(--green-900);
+}
+
+.interior-hero {
+  align-items: end;
+  display: grid;
+  gap: clamp(50px, 8vw, 130px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(350px, 0.8fr);
+  min-height: 590px;
+  padding: clamp(80px, 10vw, 150px) clamp(24px, 7vw, 112px);
+}
+
+.interior-hero h1 {
+  font-size: clamp(66px, 8vw, 120px);
+  line-height: 0.92;
+  margin: 36px 0 0;
+  max-width: 900px;
+}
+
+.interior-hero-copy {
+  padding-bottom: 10px;
+}
+
+.interior-hero-copy > p {
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.3vw, 32px);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.interior-hero-copy > span {
+  border-left: 2px solid var(--gold);
+  color: var(--muted);
+  display: block;
+  font-size: 12px;
+  line-height: 1.65;
+  margin-top: 36px;
+  padding-left: 18px;
+}
+
+.room-types-hero {
+  background:
+    linear-gradient(135deg, rgba(216, 196, 164, 0.16), transparent 55%),
+    var(--ivory);
+}
+
+.room-detail-list {
+  background: #f2eadf;
+}
+
+.room-detail {
+  align-items: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(420px, 0.88fr);
+  min-height: 670px;
+}
+
+.room-detail + .room-detail {
+  border-top: 1px solid rgba(177, 138, 74, 0.26);
+}
+
+.room-detail:nth-child(even) {
+  background: var(--green-950);
+}
+
+.room-detail:nth-child(even) .room-detail-image {
+  order: 2;
+}
+
+.room-detail:nth-child(even) .room-detail-copy {
+  color: var(--white);
+  order: 1;
+}
+
+.room-detail:nth-child(even) .room-detail-copy > p:not(.eyebrow),
+.room-detail:nth-child(even) .room-detail-copy li {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.room-detail:nth-child(even) .room-detail-copy li {
+  border-color: rgba(213, 189, 144, 0.24);
+}
+
+.room-detail-image {
+  min-height: 670px;
+  overflow: hidden;
+  position: relative;
+}
+
+.room-detail-image::after {
+  background: linear-gradient(180deg, transparent 65%, rgba(13, 46, 40, 0.34));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.room-detail-image img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.room-detail-image > span {
+  align-items: center;
+  background: rgba(248, 244, 236, 0.92);
+  border-radius: 50%;
+  bottom: 34px;
+  color: var(--green-950);
+  display: flex;
+  font-family: var(--serif);
+  font-size: 22px;
+  height: 62px;
+  justify-content: center;
+  left: 34px;
+  position: absolute;
+  width: 62px;
+  z-index: 2;
+}
+
+.room-detail-copy {
+  align-self: center;
+  padding: clamp(54px, 8vw, 120px);
+}
+
+.room-detail-copy h2 {
+  font-size: clamp(50px, 5vw, 78px);
+  margin: 20px 0 28px;
+}
+
+.room-detail-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.room-detail-copy ul {
+  list-style: none;
+  margin: 42px 0 0;
+  padding: 0;
+}
+
+.room-detail-copy li {
+  align-items: center;
+  border-top: 1px solid rgba(177, 138, 74, 0.3);
+  color: var(--ink);
+  display: flex;
+  font-size: 14px;
+  gap: 14px;
+  min-height: 55px;
+}
+
+.room-detail-copy li:last-child {
+  border-bottom: 1px solid rgba(177, 138, 74, 0.3);
+}
+
+.room-detail-copy li span {
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.room-inclusions {
+  background: var(--ivory);
+}
+
+.room-inclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 64px;
+}
+
+.room-inclusion-grid article {
+  border-left: 1px solid rgba(177, 138, 74, 0.3);
+  min-height: 240px;
+  padding: 18px 30px 20px;
+}
+
+.room-inclusion-grid article:first-child {
+  border-left: 0;
+}
+
+.room-inclusion-grid article > span,
+.review-values article > span {
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 16px;
+}
+
+.room-inclusion-grid h3,
+.review-values h3 {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  margin: 56px 0 14px;
+}
+
+.room-inclusion-grid p,
+.review-values p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.interior-cta {
+  align-items: end;
+  background: var(--green-950);
+  color: var(--white);
+  display: grid;
+  gap: clamp(50px, 10vw, 170px);
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+  padding: clamp(80px, 10vw, 145px) clamp(24px, 7vw, 112px);
+}
+
+.interior-cta h2 {
+  color: var(--ivory);
+  font-size: clamp(48px, 5.5vw, 82px);
+  margin: 20px 0 0;
+}
+
+.interior-cta > div:last-child > p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin: 0 0 30px;
+}
+
+.reviews-hero {
+  background:
+    radial-gradient(circle at 82% 35%, rgba(177, 138, 74, 0.12), transparent 28%),
+    var(--green-950);
+  color: var(--white);
+}
+
+.reviews-hero h1 {
+  color: var(--ivory);
+}
+
+.reviews-hero .interior-hero-copy > p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sample-review-notice {
+  align-items: flex-start;
+  background: var(--sand);
+  color: var(--green-950);
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 30px clamp(24px, 7vw, 112px);
+}
+
+.sample-review-notice > span {
+  align-items: center;
+  border: 1px solid rgba(13, 46, 40, 0.4);
+  border-radius: 50%;
+  display: flex;
+  flex: 0 0 auto;
+  font-family: var(--serif);
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+.sample-review-notice strong {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.sample-review-notice p {
+  line-height: 1.6;
+  margin: 0;
+  max-width: 900px;
+}
+
+.reviews-grid {
+  background: #f2eadf;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: clamp(40px, 7vw, 110px);
+}
+
+.review-card {
+  background: var(--ivory);
+  border: 1px solid rgba(177, 138, 74, 0.26);
+  display: flex;
+  flex-direction: column;
+  min-height: 430px;
+  padding: clamp(28px, 3.5vw, 52px);
+}
+
+.review-card:nth-child(1),
+.review-card:nth-child(5) {
+  background: var(--green-950);
+  color: var(--white);
+}
+
+.review-card:nth-child(1) blockquote,
+.review-card:nth-child(5) blockquote {
+  color: var(--ivory);
+}
+
+.review-card:nth-child(1) .review-attribution strong,
+.review-card:nth-child(5) .review-attribution strong {
+  color: var(--gold-light);
+}
+
+.review-card-top {
+  align-items: start;
+  color: var(--gold);
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-card-top > span:first-child {
+  font-family: var(--serif);
+  font-size: 18px;
+}
+
+.review-card-top > span:last-child {
+  font-family: var(--serif);
+  font-size: 72px;
+  line-height: 0.65;
+}
+
+.review-card blockquote {
+  color: var(--green-950);
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.1vw, 31px);
+  line-height: 1.45;
+  margin: 58px 0 48px;
+}
+
+.review-attribution {
+  border-top: 1px solid rgba(177, 138, 74, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: auto;
+  padding-top: 19px;
+}
+
+.review-attribution strong {
+  color: var(--green-900);
+  font-size: 13px;
+}
+
+.review-attribution span {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.review-promise {
+  background: var(--ivory);
+}
+
+.review-values {
+  border-bottom: 1px solid rgba(177, 138, 74, 0.3);
+  border-top: 1px solid rgba(177, 138, 74, 0.3);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 70px 0 48px;
+}
+
+.review-values article {
+  border-left: 1px solid rgba(177, 138, 74, 0.3);
+  min-height: 220px;
+  padding: 28px 34px;
+}
+
+.review-values article:first-child {
+  border-left: 0;
+}
+
+.interior-footer {
+  align-items: center;
+  background: #08241f;
+  color: rgba(255, 255, 255, 0.74);
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 1fr auto;
+  padding: 60px clamp(24px, 7vw, 112px) 30px;
+}
+
+.interior-footer > a {
+  color: var(--gold-light);
+  font-size: 13px;
+}
+
 .booking-page {
   background: var(--ivory);
   min-height: 100vh;
@@ -1750,6 +2179,77 @@ footer {
 }
 
 @media (max-width: 900px) {
+  .interior-hero {
+    align-items: start;
+    gap: 48px;
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 90px 32px;
+  }
+
+  .interior-hero-copy {
+    max-width: 680px;
+    padding-bottom: 0;
+  }
+
+  .room-detail {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .room-detail:nth-child(even) .room-detail-image,
+  .room-detail:nth-child(even) .room-detail-copy {
+    order: initial;
+  }
+
+  .room-detail-image {
+    min-height: 520px;
+  }
+
+  .room-detail-copy {
+    padding: 68px 32px 78px;
+  }
+
+  .room-inclusion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .room-inclusion-grid article:nth-child(3) {
+    border-left: 0;
+  }
+
+  .room-inclusion-grid article:nth-child(n + 3) {
+    border-top: 1px solid rgba(177, 138, 74, 0.3);
+  }
+
+  .interior-cta {
+    align-items: start;
+    gap: 46px;
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 56px 32px;
+  }
+
+  .review-values {
+    grid-template-columns: 1fr;
+  }
+
+  .review-values article {
+    border-left: 0;
+    border-top: 1px solid rgba(177, 138, 74, 0.3);
+  }
+
+  .review-values article:first-child {
+    border-top: 0;
+  }
+
+  .interior-footer {
+    grid-template-columns: 1fr;
+  }
+
   .site-header {
     height: 76px;
   }
@@ -1928,6 +2428,114 @@ footer {
 }
 
 @media (max-width: 620px) {
+  .interior-header {
+    height: 76px;
+    padding: 0 16px;
+  }
+
+  .interior-header-actions {
+    gap: 8px;
+  }
+
+  .interior-header-actions > a {
+    display: none;
+  }
+
+  .interior-header .brand-name {
+    font-size: 18px;
+  }
+
+  .interior-header .language-switcher {
+    border: 0;
+  }
+
+  .interior-hero {
+    gap: 38px;
+    padding: 68px 22px;
+  }
+
+  .interior-hero h1 {
+    font-size: clamp(49px, 15vw, 68px);
+    margin-top: 28px;
+  }
+
+  .interior-hero-copy > p {
+    font-size: 21px;
+  }
+
+  .room-detail-image {
+    min-height: 410px;
+  }
+
+  .room-detail-image > span {
+    bottom: 22px;
+    height: 50px;
+    left: 22px;
+    width: 50px;
+  }
+
+  .room-detail-copy {
+    padding: 58px 22px 68px;
+  }
+
+  .room-detail-copy h2 {
+    font-size: clamp(45px, 14vw, 62px);
+  }
+
+  .room-inclusion-grid {
+    grid-template-columns: 1fr;
+    margin-top: 44px;
+  }
+
+  .room-inclusion-grid article {
+    border-left: 0;
+    border-top: 1px solid rgba(177, 138, 74, 0.3);
+    min-height: 205px;
+    padding: 28px 12px;
+  }
+
+  .room-inclusion-grid article:first-child {
+    border-top: 0;
+  }
+
+  .interior-cta {
+    padding: 72px 22px;
+  }
+
+  .sample-review-notice {
+    gap: 15px;
+    padding: 26px 22px;
+  }
+
+  .sample-review-notice strong {
+    line-height: 1.5;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+  }
+
+  .review-card {
+    min-height: 390px;
+    padding: 30px 26px;
+  }
+
+  .review-card blockquote {
+    font-size: 24px;
+    margin: 48px 0 40px;
+  }
+
+  .review-values {
+    margin-top: 50px;
+  }
+
+  .interior-footer {
+    align-items: start;
+    gap: 24px;
+    padding: 50px 22px 28px;
+  }
+
   .site-header {
     gap: 10px;
     padding: 0 16px;

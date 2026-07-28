@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { sitePath } from "../site-path";
 
 type Language = "en" | "zh" | "ms";
 export type ComingSoonPageType = "roomTypes" | "reviews" | "gallery";
@@ -122,7 +123,7 @@ export default function ComingSoonPage({
       <header className="coming-soon-header">
         <a
           className="brand brand-on-dark"
-          href={`/?lang=${language}`}
+          href={sitePath(`/?lang=${language}`)}
           aria-label="Durian Care Home"
         >
           <span className="brand-mark" aria-hidden="true">
@@ -131,7 +132,7 @@ export default function ComingSoonPage({
           <span className="brand-name">Durian Care Home</span>
         </a>
         <div className="coming-soon-actions">
-          <a href={`/?lang=${language}`}>{t.back}</a>
+          <a href={sitePath(`/?lang=${language}`)}>{t.back}</a>
           <div className="language-switcher" aria-label="Language">
             {(["en", "zh", "ms"] as Language[]).map((code) => (
               <button
@@ -159,7 +160,10 @@ export default function ComingSoonPage({
           <h1>{page.title}</h1>
           <p className="coming-soon-text">{page.text}</p>
           <p className="coming-soon-note">{page.note}</p>
-          <a className="button button-gold" href={`/?lang=${language}`}>
+          <a
+            className="button button-gold"
+            href={sitePath(`/?lang=${language}`)}
+          >
             <span aria-hidden="true">←</span>
             {t.back}
           </a>

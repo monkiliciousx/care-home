@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { sitePath } from "./site-path";
 
 type Language = "en" | "zh" | "ms";
 
@@ -389,10 +390,10 @@ export default function Home() {
   const navigation = [
     "#about",
     "#care",
-    `/room-types?lang=${language}`,
+    sitePath(`/room-types?lang=${language}`),
     "#facilities",
-    `/reviews?lang=${language}`,
-    `/gallery?lang=${language}`,
+    sitePath(`/reviews?lang=${language}`),
+    sitePath(`/gallery?lang=${language}`),
     "#contact",
   ];
 
@@ -466,7 +467,7 @@ export default function Home() {
       time: visitTime,
       lang: language,
     });
-    window.location.href = `/book-visit?${query.toString()}`;
+    window.location.href = sitePath(`/book-visit?${query.toString()}`);
   }
 
   function selectLanguage(next: Language) {
@@ -555,7 +556,7 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <img
-            src="/images/hero-residence.webp"
+            src={sitePath("/images/hero-residence.webp")}
             alt="A welcoming modern aged care residence surrounded by tropical landscaping"
           />
           <div className="hero-caption">
@@ -626,11 +627,13 @@ export default function Home() {
           {t.roomTypes.map(([title, description], index) => (
             <a
               className="room-showcase-card"
-              href={`/room-types?lang=${language}`}
+              href={sitePath(`/room-types?lang=${language}`)}
               key={title}
             >
               <img
-                src={`/images/${["single-room", "twin-room", "shared-room"][index]}.webp`}
+                src={sitePath(
+                  `/images/${["single-room", "twin-room", "shared-room"][index]}.webp`,
+                )}
                 alt={`${title} at Durian Care Home`}
               />
               <span className="room-card-number">0{index + 1}</span>
@@ -662,7 +665,7 @@ export default function Home() {
         </div>
         <div className="community-image">
           <img
-            src="/images/physiotherapy-care.webp"
+            src={sitePath("/images/physiotherapy-care.webp")}
             alt="A physiotherapist supporting an older adult in a bright wellbeing room"
           />
         </div>
